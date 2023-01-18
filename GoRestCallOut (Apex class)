@@ -1,0 +1,24 @@
+public class goRestCallout {
+    
+    public static void postUser(){
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://gorest.co.in/public/v2/users');
+        request.setMethod('POST');
+        request.setHeader('Content-Type' , 'application/json');
+        request.setHeader('Authorization', 'Bearer 69ee83cd07a4cb5ce8abe04836ad1ff4650adb108854f0dba7d7f9b8fd64d8e7');
+        request.setBody('{"name":"Adam", "email":"adam@icloud.com", "gender":"male", "status":"inactive"}');
+        HttpResponse response = http.send(request);
+        if(response.getStatusCode()==200||response.getStatusCode()==201){
+            System.debug(response.getBody());
+            string userName = Wrapper1.parse(response.getBody()).name;
+            string userEmail = Wrapper1.parse(response.getBody()).email;
+            Contact cn=new Contact();
+            cn.LastName=userName;
+            cn.Email=userEmail;
+            Insert cn;
+            }
+                    
+     }
+   
+}
