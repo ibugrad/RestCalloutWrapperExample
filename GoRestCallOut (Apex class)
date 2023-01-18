@@ -13,8 +13,8 @@ public class goRestCallout {
             System.debug(response.getBody());
             Wrapper1 userName = Wrapper1.parse(response.getBody());
             Contact cn=new Contact();
-            cn.LastName=userName;
-            cn.Email=userEmail;
+            cn.LastName=user.name;
+            cn.Email=user.email;
             Insert cn;
             }
                     
