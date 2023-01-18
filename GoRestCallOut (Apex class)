@@ -11,8 +11,7 @@ public class goRestCallout {
         HttpResponse response = http.send(request);
         if(response.getStatusCode()==200||response.getStatusCode()==201){
             System.debug(response.getBody());
-            string userName = Wrapper1.parse(response.getBody()).name;
-            string userEmail = Wrapper1.parse(response.getBody()).email;
+            Wrapper1 userName = Wrapper1.parse(response.getBody());
             Contact cn=new Contact();
             cn.LastName=userName;
             cn.Email=userEmail;
