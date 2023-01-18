@@ -1,0 +1,14 @@
+public class Wrapper1 {
+    
+
+	public Integer id;
+	public String name;
+	public String email;
+	public String gender;
+	public String status;
+
+	
+	public static Wrapper1 parse(String json) {
+		return (Wrapper1) System.JSON.deserialize(json, Wrapper1.class);
+	}
+}
